@@ -301,7 +301,7 @@ class PtzSlam:
         """
 
         # delete ray_global
-        delete_index = np.array(index)
+        delete_index = np.array(index).astype(int)
         self.rays = np.delete(self.rays, delete_index, axis=0)
         self.des = np.delete(self.des, delete_index, axis=0)
 
@@ -310,6 +310,8 @@ class PtzSlam:
         for j in range(len(delete_index)):
             p_delete_index = np.append(p_delete_index, np.array([2 * delete_index[j] + 3,
                                                                  2 * delete_index[j] + 4]))
+
+        p_delete_index = p_delete_index.astype(int)
 
         self.state_cov = np.delete(self.state_cov, p_delete_index, axis=0)
         self.state_cov = np.delete(self.state_cov, p_delete_index, axis=1)
@@ -341,8 +343,10 @@ class PtzSlam:
         # # for baseline2
         # delete_index = []
         # for i in range(new_keypoints.shape[0]):
-        #     world_x, world_y, _ = self.current_camera.back_project_to_3d_point(new_keypoints[i, 0], new_keypoints[i, 1])
+        #     world_x, world_y,
         #     # if world_x < 0 or world_x > 118 or world_y < 0 or world_y > 70:
+        #  _ = self.current_camera.back_project_to_3d_point(new_keypoints[i, 0], new_keypoints[i, 1])
+
         #     if world_x < 0 or world_x > 25 or world_y < 0 or world_y > 18:
         #         delete_index.append(i)
         # new_keypoints = np.delete(new_keypoints, delete_index, axis=0)
