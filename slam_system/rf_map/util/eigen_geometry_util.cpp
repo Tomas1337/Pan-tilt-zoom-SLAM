@@ -7,6 +7,7 @@
 //
 
 #include "eigen_geometry_util.h"
+#define _USE_MATH_DEFINES
 #include <math.h>
 #include <Eigen/Geometry>
 #include <iostream>

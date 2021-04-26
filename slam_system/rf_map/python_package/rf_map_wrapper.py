@@ -12,7 +12,7 @@ system = platform.system()
 
 #@todo hardcode library
 if system == "Windows":
-    lib = cdll.LoadLibrary('C:/graduate_design/Pan-tilt-zoom-SLAM/slam_system/rf_map/build/x64/Debug/rf_map_python.dll')
+    lib = cdll.LoadLibrary('C:/Projects/Pan-tilt-zoom-SLAM/slam_system/rf_map/librf_map_python/Release/rf_map_python.dll')
 else:
     lib = cdll.LoadLibrary('/Users/jimmy/Code/ptz_slam/Pan-tilt-zoom-SLAM/slam_system/rf_map/build/librf_map_python.dylib')
 

@@ -7,6 +7,8 @@
 //
 
 #include "pgl_ptz_camera.h"
+#include "corecrt_math_defines.h"
+
 #include <iostream>
 
 #include <unsupported/Eigen/NonLinearOptimization>
@@ -54,7 +56,7 @@ namespace cvx_pgl  {
         double sin_pan = -R_pan_tilt(0, 2);
         double cos_tilt = R_pan_tilt(1, 1);
         double sin_tilt = -R_pan_tilt(2, 1);
-        double pan  = atan2(sin_pan, cos_pan) * 180.0 /M_PI;
+        double pan  = atan2(sin_pan, cos_pan) * 180.0 /3;
         double tilt = atan2(sin_tilt, cos_tilt) * 180.0 /M_PI;
         ptz_[0] = pan;
         ptz_[1] = tilt;
